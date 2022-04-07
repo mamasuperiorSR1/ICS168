@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/OpeningScene.unity
+    guid: ebcc1206037b2b242987887e935a386e
+  - enabled: 1
+    path: Assets/BenedictPhotonTest/Test2/Scenes/Lobby.unity
+    guid: 217eb83a297386942a967ed9007873f7
+  - enabled: 1
+    path: Assets/BenedictPhotonTest/Test2/Scenes/GameSceneMulti.unity
+    guid: 9a094fb3bc7990e4f8eea7bf79821f6e
+  - enabled: 0
+    path: Assets/BenedictPhotonTest/Test1/Scenes/Launcher.unity
+    guid: 4ef95beac4712c646a66798f18985f50
+  - enabled: 0
+    path: Assets/BenedictPhotonTest/Test1/Scenes/Room for 1.unity
+    guid: ad2bc292968fdf44b91c7af8e428637e
+  - enabled: 0
+    path: Assets/BenedictPhotonTest/Test1/Scenes/Room for 2.unity
+    guid: 7da892458bf68bb44bec2617a1c37e6f
+  - enabled: 0
+    path: Assets/BenedictPhotonTest/Test1/Scenes/Room for 3.unity
+    guid: cfa034f224c00ee42b6c9e574a3f12f4
+  - enabled: 0
+    path: Assets/BenedictPhotonTest/Test1/Scenes/Room for 4.unity
+    guid: eeefbfacc9905c9438dfa13d1c071a82
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 3cb35256b0ba56a4d8308ddb72e33418
+  - enabled: 0
+    path: Assets/Scenes/Joshua Wolfe/Loading.unity
+    guid: 8f8c3d745721c3847b2fdfce8813a364
+  - enabled: 0
+    path: Assets/Scenes/Joshua Wolfe/Lobby.unity
+    guid: 2db0374ec82b23e4e8b68d2b2ecf7708
+  - enabled: 0
+    path: Assets/Scenes/Joshua Wolfe/Online Test.unity
+    guid: ecd31281553573040957007feaba3a42
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: d06f0e859a785bc46b218ad310d1a953
+  - enabled: 1
+    path: Assets/Scenes/Game (Map 1 Copy).unity
+    guid: 5d122940e9e46c342a18dcd35325c3b6
+  - enabled: 1
+    path: Assets/Scenes/AIvPlayer.unity
+    guid: 483dcb9ac4cfbad45af0a6c277d9e758
+  - enabled: 0
+    path: Assets/Scenes/Map 2 (Ed GameOver Testing).unity
+    guid: 04acb2594e2f9554ab564da4f006c73f
+  - enabled: 1
+    path: Assets/Scenes/Map 1 with NavMesh.unity
+    guid: 6dbd5cf9ba6c39b48abfbedd60f01fd9
+  - enabled: 1
+    path: Assets/Scenes/ControllerSelection.unity
+    guid: c68106ce38c45d842b1ccbcf4706399d
+  - enabled: 1
+    path: Assets/Scenes/MainMenu(NiceUI).unity
+    guid: ff9da7f6ad18ec64eb4bdcbee647269a
+  - enabled: 1
+    path: Assets/Scenes/GameModeSelection.unity
+    guid: 5a4629ad1251cc54fb730a125a2cd020
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
