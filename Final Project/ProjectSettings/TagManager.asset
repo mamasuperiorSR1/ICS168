@@ -15,6 +15,7 @@ TagManager:
   - Master
   - UI
   - Guns
+  - StartCamera
   layers:
   - Default
   - TransparentFX

@@ -26,12 +26,27 @@ public class AIvPlayerGameManager : MonoBehaviour
     private GameObject player;
     private GameObject dummy;
 
+    [SerializeField] private Camera StartCamera;
+    [SerializeField] private Transform m_PlayerCamera;
+    [SerializeField] private float CamSpeed = 5f;
+    [SerializeField] private float CameraMoveSpeed = 10f;
+    private bool StartCameraEnabled;
+
 
     void Start()
     {
         cameraTimerCopy = maxCameraTimer;
+        StartCameraEnabled = true;
         PlayerAssignment();
         RandomMeshes();
+    }
+
+    IEnumerator MoveToPlayer()
+    {
+        StartCamera.transform.position = Vector3.MoveTowards(StartCamera.transform.position, m_PlayerCamera.position, CameraMoveSpeed * Time.deltaTime);
+        yield return new WaitForSeconds(2);
+        StartCamera.enabled = false;
+        StartCameraEnabled = false;
     }
 
     private void RandomMeshes()
@@ -90,6 +105,10 @@ public class AIvPlayerGameManager : MonoBehaviour
 
     void Update()
     {
+        if (StartCameraEnabled = true)
+        {
+            StartCoroutine(MoveToPlayer());
+        }
         if (GameStateManager.GetState() == GameStateManager.GAMESTATE.PLAYING)
         {
             //Debug.Log(cameraTimerCopy);
