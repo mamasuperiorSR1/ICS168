@@ -64,11 +64,13 @@ public class GameManager : MonoBehaviour
     {
         GameStateManager.Resume();
         players = new List<GameObject>();
+        int playerNum = 1;
 
         //local multiplayer spawning
         foreach (Transform child in transform)
         {
-            players.Add(Instantiate(models[Random.Range(0, models.Count)], child.gameObject.transform.position, Quaternion.identity));
+            players.Add(Instantiate(models[PlayerPrefs.GetInt("selectedCharacterP" + playerNum.ToString())], child.gameObject.transform.position, Quaternion.identity));
+            playerNum++;
         }
 
         index = Random.Range(0, players.Count);

@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 3cb35256b0ba56a4d8308ddb72e33418
+  - enabled: 1
+    path: Assets/Scenes/Joshua Wolfe/Character Selection.unity
+    guid: c119f27d710da5f4e93a86bbd8dd8dea
   - enabled: 0
     path: Assets/Scenes/Joshua Wolfe/Loading.unity
     guid: 8f8c3d745721c3847b2fdfce8813a364
