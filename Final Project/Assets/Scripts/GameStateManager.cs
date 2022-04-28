@@ -24,7 +24,8 @@ public class GameStateManager : MonoBehaviourPunCallbacks
         GAMEOVER,
         MENU,
         PAUSE,
-        SWAP
+        SWAP,
+        CINEMATIC
     }
 
     private static MULTIPLAY MultiplayState;
@@ -198,6 +199,11 @@ public class GameStateManager : MonoBehaviourPunCallbacks
     {
         State = GAMESTATE.PLAYING;
         Time.timeScale = 1f;
+    }
+
+    public static void Cinematic()
+    {
+        State = GAMESTATE.CINEMATIC;
     }
 
     public static void SetState(GAMESTATE NewState)

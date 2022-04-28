@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81fbf08b255f81843994cdef2325aec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelToLoad: Game (Map 1 Copy)
+  LevelToLoad: Character Selection
 --- !u!1 &1035807177
 GameObject:
   m_ObjectHideFlags: 0

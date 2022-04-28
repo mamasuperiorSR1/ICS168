@@ -39,14 +39,26 @@ public class AIvPlayerGameManager : MonoBehaviour
         StartCameraEnabled = true;
         PlayerAssignment();
         RandomMeshes();
+        GameStateManager.Cinematic();
+        //StartCoroutine(MoveToPlayer());
     }
 
+    /*
     IEnumerator MoveToPlayer()
     {
         StartCamera.transform.position = Vector3.MoveTowards(StartCamera.transform.position, m_PlayerCamera.position, CameraMoveSpeed * Time.deltaTime);
         yield return new WaitForSeconds(2);
         StartCamera.enabled = false;
         StartCameraEnabled = false;
+        GameStateManager.Resume();
+        //GameStateManager.GAMESTATE = GameStateManager.GAMESTATE.PLAYING;
+    }
+    */
+
+    private void Move()
+    {
+        StartCamera.enabled = false;
+        GameStateManager.Resume();
     }
 
     private void RandomMeshes()
@@ -105,9 +117,23 @@ public class AIvPlayerGameManager : MonoBehaviour
 
     void Update()
     {
-        if (StartCameraEnabled = true)
+        Debug.Log(GameStateManager.GetState());
+        /*
+        if (StartCameraEnabled == true)
         {
+            GameStateManager.Cinematic();
+            //StartCameraEnabled = false;
             StartCoroutine(MoveToPlayer());
+        }
+        */
+        if (GameStateManager.GetState() == GameStateManager.GAMESTATE.CINEMATIC)
+        {
+            StartCamera.transform.position = Vector3.MoveTowards(StartCamera.transform.position, m_PlayerCamera.position, CameraMoveSpeed * Time.deltaTime);
+            if (StartCameraEnabled)
+            {
+                Invoke("Move", 2f);
+                StartCameraEnabled = false;
+            }
         }
         if (GameStateManager.GetState() == GameStateManager.GAMESTATE.PLAYING)
         {
@@ -131,11 +157,11 @@ public class AIvPlayerGameManager : MonoBehaviour
                 cameraTimerCopy = maxCameraTimer;
                 PlayerUISwapper(players[index % players.Count].tag);
 
-                GameStateManager.Swap();
+                //GameStateManager.Swap();
             }
             TimerUI.SetTimerUI((int)Mathf.Ceil(cameraTimerCopy));
             cameraTimerCopy -= Time.deltaTime;
-            GameStateManager.Resume();
+            //GameStateManager.Resume();
 
             //This is so that integer overflow cannot occur
             if (index == 100)

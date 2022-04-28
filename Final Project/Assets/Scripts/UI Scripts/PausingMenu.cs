@@ -22,7 +22,7 @@ public class PausingMenu : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && GameStateManager.GetState() != GameStateManager.GAMESTATE.GAMEOVER)
+        if (Input.GetKeyDown(KeyCode.Escape) && GameStateManager.GetState() != GameStateManager.GAMESTATE.GAMEOVER && GameStateManager.GetState() != GameStateManager.GAMESTATE.CINEMATIC)
         {
             //if the game is playing, pause
             if (GameStateManager.GetState() == GameStateManager.GAMESTATE.PLAYING)
