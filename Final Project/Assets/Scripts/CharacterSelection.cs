@@ -10,47 +10,118 @@ public class CharacterSelection : MonoBehaviour
     public GameObject[] characters;
     public int selectedCharacterP1 = -1;
     public int selectedCharacterP2 = -1;
-    public int selectedCharacter = 0;
+    public int selected = 0;
+    public int selectedMeshP1 = -1;
+    public int selectedMeshP2 = -1;
     public GameObject Text;
+    [SerializeField]
+    private Mesh[] Meshes;
+    private bool gun = false;
+    public GameObject guns;
+    public GameObject mesh;
+    //private ArrayList[] selects = new ArrayList[2];
+
+    private void Awake()
+    {
+        guns.SetActive(false);
+        Text.GetComponent<Text>().text = "Select P1's Skin";
+    }
 
     public void NextCharacter()
     {
-        characters[selectedCharacter].SetActive(false);
-        selectedCharacter = (selectedCharacter + 1) % characters.Length;
-        characters[selectedCharacter].SetActive(true);
+        if (gun)
+        {
+            characters[selected].SetActive(false);
+            selected = (selected + 1) % characters.Length;
+            characters[selected].SetActive(true);
+        }
+        else
+        {
+            selected = (selected + 1) % Meshes.Length;
+            mesh.GetComponent<MeshFilter>().sharedMesh = Meshes[selected];
+        }
+        
     }
     
     public void PreviousCharacter()
     {
-        characters[selectedCharacter].SetActive(false);
-        selectedCharacter--;
-        if (selectedCharacter < 0)
+        if (gun)
         {
-            selectedCharacter += characters.Length;
+            characters[selected].SetActive(false);
+            selected--;
+            if (selected < 0)
+            {
+                selected += characters.Length;
+            }
+            characters[selected].SetActive(true);
         }
-        characters[selectedCharacter].SetActive(true);
+        else
+        {
+            selected--;
+            if (selected < 0)
+            {
+                selected += Meshes.Length;
+            }
+            mesh.GetComponent<MeshFilter>().sharedMesh = Meshes[selected];
+        }
+        
     }
 
     public void Confirm()
     {
-        if (selectedCharacterP1 == -1)
+        if (gun)
         {
-            selectedCharacterP1 = selectedCharacter;
-            PlayerPrefs.SetInt("selectedCharacterP1", selectedCharacterP1);
-            Debug.Log("Player1 pref set");
-            characters[selectedCharacter].SetActive(false);
-            selectedCharacter = 0;
-            characters[selectedCharacter].SetActive(true);
-            Text.GetComponent<Text>().text = "Select P2's Gun";
+            if (selectedCharacterP1 == -1)
+            {
+                selectedCharacterP1 = selected;
+                PlayerPrefs.SetInt("selectedCharacterP1", selectedCharacterP1);
+                Debug.Log("Player1 pref set");
+                //if (PlayerPrefs.GetInt("AI") == 1)
+                //{
+                //    SceneManager.LoadScene(sceneName: "AIvPlayer");
+                //}
+                //characters[selected].SetActive(false);
+                selected = 0;
+                characters[selected].SetActive(true);
+                guns.SetActive(false);
+                gun = false;
+                Text.GetComponent<Text>().text = "Select P2's Skin";
+                mesh.SetActive(true);
+                mesh.GetComponent<MeshFilter>().sharedMesh = Meshes[selected];
+            }
+            else
+            {
+                selectedCharacterP2 = selected;
+                PlayerPrefs.SetInt("selectedCharacterP2", selectedCharacterP2);
+                Debug.Log("Player2 pref set");
+                SceneManager.LoadScene(sceneName: "Game (Map 1 Copy)");
+            }
         }
         else
         {
-            selectedCharacterP2 = selectedCharacter;
-            PlayerPrefs.SetInt("selectedCharacterP2", selectedCharacterP2);
-            Debug.Log("Player2 pref set");
-            SceneManager.LoadScene(sceneName: "Game (Map 1 Copy)");
+            if (selectedMeshP1 == -1)
+            {
+                selectedMeshP1 = selected;
+                PlayerPrefs.SetInt("selectedMeshP1", selectedMeshP1);
+            }
+            else
+            {
+                selectedMeshP2 = selected;
+                PlayerPrefs.SetInt("selectedMeshP2", selectedMeshP2);
+            }
+            selected = 0;
+            mesh.SetActive(false);
+            gun = true;
+            guns.SetActive(true);
+            if (selectedCharacterP1 == -1)
+            {
+                Text.GetComponent<Text>().text = "Select P1's Gun";
+            }
+            else
+            {
+                Text.GetComponent<Text>().text = "Select P2's Gun";
+            }
+            
         }
-        
-        
     }
 }

@@ -53,10 +53,12 @@ public class GameManager : MonoBehaviour
     {
         //This is done by Ed Slee
         //This script is providing each player in the game a mesh
+        int playerNum = 1;
         foreach (GameObject player in players)
         {
-            int RandomIndex = Random.Range(0, Meshes.Length);
-            player.GetComponent<MeshFilter>().sharedMesh = Meshes[RandomIndex];
+            //int RandomIndex = Random.Range(0, Meshes.Length);
+            player.GetComponent<MeshFilter>().sharedMesh = Meshes[PlayerPrefs.GetInt("selectedMeshP" + playerNum.ToString())];
+            playerNum++;
         }
     }
 
