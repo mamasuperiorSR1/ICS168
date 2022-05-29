@@ -32,6 +32,12 @@ public class GameManager : MonoBehaviour
     private Mesh[] Meshes;
     private bool keyboardAndJoystick;
 
+    [SerializeField] private Camera StartCamera;
+    [SerializeField] private Transform m_PlayerCamera;
+    [SerializeField] private float CamSpeed = 5f;
+    [SerializeField] private float CameraMoveSpeed = 10f;
+    private bool StartCameraEnabled;
+
     void Start()
     {
         //This should make it Keyboard and Joystick since ControllerPrefs exists and isn't the default value
@@ -47,6 +53,14 @@ public class GameManager : MonoBehaviour
         }
         PlayerSpawn();
         RandomMeshes();
+        StartCameraEnabled = true;
+        GameStateManager.Cinematic();
+    }
+
+    private void Move()
+    {
+        StartCamera.enabled = false;
+        GameStateManager.Resume();
     }
 
     private void RandomMeshes()
@@ -120,7 +134,16 @@ public class GameManager : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
+        if (GameStateManager.GetState() == GameStateManager.GAMESTATE.CINEMATIC)
+        {
+            StartCamera.transform.position = Vector3.MoveTowards(StartCamera.transform.position, m_PlayerCamera.position, CameraMoveSpeed * Time.deltaTime);
+            if (StartCameraEnabled)
+            {
+                Invoke("Move", 2f);
+                StartCameraEnabled = false;
+            }
+        }
         if (GameStateManager.GetState() == GameStateManager.GAMESTATE.PLAYING)
         {
             //When the timer expires, it disables the current player's camera and activates the next one
