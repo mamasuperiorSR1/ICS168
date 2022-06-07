@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public enum FireMode { Semi, Auto }
+//public enum FireMode { Semi, Auto }
 
 // Written by Fabian (Yilong)
-public class Gun : MonoBehaviourPunCallbacks
+public class projection_weapon : MonoBehaviourPunCallbacks
 {
     PhotonView view;
 

@@ -37,6 +37,7 @@ public class ShellExplosion : MonoBehaviour
             // Add an explosion force.
             targetRigidbody.AddExplosionForce (m_ExplosionForce, transform.position, m_ExplosionRadius);
 
+            /*
             // Find the TankHealth script associated with the rigidbody.
             TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth> ();
 
@@ -49,6 +50,7 @@ public class ShellExplosion : MonoBehaviour
 
             // Deal this damage to the tank.
             targetHealth.TakeDamage (damage);
+            */
         }
 
         // Unparent the particles from the shell.
