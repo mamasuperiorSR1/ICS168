@@ -1521,7 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625b2e689e97f12489cb90ab67a7b67a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelToLoad: AIvPlayer
+  LevelToLoad: New Map (AI)
 --- !u!114 &8918504958568690275
 MonoBehaviour:
   m_ObjectHideFlags: 0

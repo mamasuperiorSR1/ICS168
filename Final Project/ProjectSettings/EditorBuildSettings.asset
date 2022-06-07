@@ -44,10 +44,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Instructions.unity
     guid: d06f0e859a785bc46b218ad310d1a953
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game (Map 1 Copy).unity
     guid: 5d122940e9e46c342a18dcd35325c3b6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AIvPlayer.unity
     guid: 483dcb9ac4cfbad45af0a6c277d9e758
   - enabled: 0
@@ -68,5 +68,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Joshua Wolfe/Character Selection.unity
     guid: c119f27d710da5f4e93a86bbd8dd8dea
+  - enabled: 1
+    path: Assets/Scenes/New Map (2P).unity
+    guid: 4f2273b5128aa744c95834bac0a73cf6
+  - enabled: 1
+    path: Assets/Scenes/New Map (AI).unity
+    guid: e2136aa34333b464289f120d2032c428
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

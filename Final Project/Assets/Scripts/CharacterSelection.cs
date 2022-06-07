@@ -19,6 +19,7 @@ public class CharacterSelection : MonoBehaviour
     private bool gun = false;
     public GameObject guns;
     public GameObject mesh;
+    public string SceneToLoad;
     //private ArrayList[] selects = new ArrayList[2];
 
     private void Awake()
@@ -94,7 +95,7 @@ public class CharacterSelection : MonoBehaviour
                 selectedCharacterP2 = selected;
                 PlayerPrefs.SetInt("selectedCharacterP2", selectedCharacterP2);
                 Debug.Log("Player2 pref set");
-                SceneManager.LoadScene(sceneName: "Game (Map 1 Copy)");
+                SceneManager.LoadScene(sceneName: SceneToLoad);
             }
         }
         else

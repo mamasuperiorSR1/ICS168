@@ -191,7 +191,7 @@ public class ShootDummy : MonoBehaviour // Created by Fabian (Yilong), Rocka (We
             }
         }
 
-        if (CanSeeTarget())
+        if (CanSeeTarget() && GameStateManager.GetState() != GameStateManager.GAMESTATE.CINEMATIC)
         {
             transform.LookAt(player);
             ChasePlayer();
